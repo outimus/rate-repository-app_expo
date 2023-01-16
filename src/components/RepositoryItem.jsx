@@ -1,11 +1,19 @@
-import { Text} from "react-native"
+import { Text } from "react-native"
+
+/*const styles = StyleSheet.create({
+    container: {
+      paddingTop: 50,
+    },
+    image: {
+      width: 50,
+      height: 50,
+    },
+  });*/
 
 export const RepositoryItem = (item) => {
-    console.log('iten om', item)
-    console.log('REPOSITORY ITEMISSA ON NYT')
-    console.log(item.item)
     return (
         <>
+            
             <Text>FullName: {item.item.fullName}</Text>
             <Text>Description: {item.item.description}</Text>
             <Text>Language: {item.item.language}</Text>
