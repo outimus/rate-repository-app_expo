@@ -29,7 +29,7 @@ const AppBar = () => {
     <View style={styles.container}>
         <Pressable
             onPress={onPressFunction}>
-            <Text style={styles.title}>Repositories</Text>
+            <Text style={styles.title}>Repositories SignIn</Text>
         </Pressable>
     </View>
     </>

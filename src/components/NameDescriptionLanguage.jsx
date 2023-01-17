@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     language: {
         backgroundColor: '#0366d6',
-        flexGrow: 1,
+        flexGrow: 0,
         color: 'white',
         textAlign: 'center',
         width: 90,

@@ -6,30 +6,36 @@ import { StarsForksReviewsRating } from "./StarsForksReviewsRating";
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        padding: 20,
-        height: 120,
-        width: 430,
+        flexWrap: 'wrap',
+        padding: 10,
+        height: 160,
+        width: 400,
         flexDirection: 'row',
-        alignContent: 'flex-start',
         backgroundColor: 'white'
     },
-    flexItem: {
-        height: 'auto',
-        width: 'auto'
+    avatar: {
+        height: 60,
+        width: 60,
+    },
+    fullNameDescripLang: {
+        height: 60,
+        width: 300,
+    },
+    starsForksReviewsRating: {
+        height: 60,
+        width: 400
     }
+
   });
 
 export const RepositoryItem = (item) => {
     return (
         <>
         <View style={styles.container}>
-            <Avatar item={item.item}/>
-            <NameDescriptionLanguage item={item.item}/>
-        </View>
-        <View>
-            <StarsForksReviewsRating item={item.item} />
+            <Avatar style={styles.avatar} item={item.item}/>
+            <NameDescriptionLanguage style={styles.fullNameDescripLang} item={item.item}/>
+            <StarsForksReviewsRating style={styles.starsForksReviewsRating} item={item.item} />
         </View>
         </>
-    )
-    
+    )   
 }

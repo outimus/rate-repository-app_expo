@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
     item1: {
         padding: 0,
         backgroundColor: 'white',
-        width: 100,
+        width: 95,
         height: 30,
         textAlign: 'center',
     },
     item2: {
         padding: 0,
         color: 'grey',
-        width: 100,
+        width: 95,
         height: 30,
         textAlign: 'center'
     }

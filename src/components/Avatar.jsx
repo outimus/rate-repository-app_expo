@@ -3,9 +3,6 @@ import  { View, Image, StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        height: 80,
-        width: 55,
-        backgroundColor: 'white',
         margin: 10,
         borderRadius: 5
     },
