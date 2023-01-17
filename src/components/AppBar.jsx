@@ -5,11 +5,12 @@ import Text from './Text';
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    color: 'white',
     backgroundColor: '#24292e',
     padding: 25,
-    height: 135,
-    fontFamily: 'Arial',
+    height: 135    
+  },
+  title: {
+    color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'left',
@@ -25,9 +26,10 @@ const onPressFunction = () => {
 const AppBar = () => {
   return (
     <>
-    <View >
-        <Pressable onPress={onPressFunction}>
-            <Text style={styles.container}>Repositories</Text>
+    <View style={styles.container}>
+        <Pressable
+            onPress={onPressFunction}>
+            <Text style={styles.title}>Repositories</Text>
         </Pressable>
     </View>
     </>
