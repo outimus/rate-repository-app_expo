@@ -1,4 +1,4 @@
-import { View, StyleSheet, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
 
@@ -7,30 +7,27 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#24292e',
     padding: 25,
-    height: 135    
+    height: 135,
+    flexDirection: 'row'    
   },
   title: {
+    margin: 5,
     color: 'white',
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'left',
     lineHeight: 120
   }
 });
 
-const onPressFunction = () => {
-    //MAKE THE CLICK HANDLER
-    console.log('You clicked this!')
-}
-
 const AppBar = () => {
   return (
     <>
     <View style={styles.container}>
-        <Pressable
-            onPress={onPressFunction}>
-            <Text style={styles.title}>Repositories SignIn</Text>
-        </Pressable>
+        <ScrollView horizontal>
+          <Text style={styles.title}>Repositories</Text>
+          <Text style={styles.title}>Sign In</Text>
+        </ScrollView>
     </View>
     </>
   )
