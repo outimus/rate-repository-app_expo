@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   }
 });
 
+//Scroll viewn tekeminen vielä onnistui. 
 const AppBar = () => {
   return (
     <>
