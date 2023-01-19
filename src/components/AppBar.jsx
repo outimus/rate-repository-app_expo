@@ -1,6 +1,7 @@
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
+import SignIn from './SignIn';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,14 +21,22 @@ const styles = StyleSheet.create({
   }
 });
 
-//Scroll viewn tekeminen vielä onnistui. 
+const handlePress = () => {
+  console.log('YOU CLICKED!')
+}
+
+//MITEN SAAN onPressistä sivun siirtymään SignInniin?
 const AppBar = () => {
   return (
     <>
     <View style={styles.container}>
         <ScrollView horizontal>
-          <Text style={styles.title}>Repositories</Text>
-          <Text style={styles.title}>Sign In</Text>
+          <Pressable onPress={handlePress}>
+            <Text style={styles.title}>Repositories</Text>
+          </Pressable>
+          <Pressable onPress={() => <SignIn/>}> 
+            <Text style={styles.title}>Sign In</Text>
+          </Pressable>
         </ScrollView>
     </View>
     </>
