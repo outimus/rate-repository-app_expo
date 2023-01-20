@@ -5,7 +5,9 @@ console.log(styles)
 
 const TextInput = ({ style, error, ...props }) => {
   const textInputStyle = [style];
-  console.log('error on ', error)
+  if (error) {
+    console.log('error!')
+  }
   return <NativeTextInput style={textInputStyle} {...props} />;
 };
 

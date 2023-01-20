@@ -1,14 +1,15 @@
 import Text from './Text';
 import FormikTextInput from './FormikTextInput'
+import { Formik } from 'formik';
 
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import theme from '../theme';
 
-/*const initialValues = {
+const initialValues = {
   username: '',
   password: '',
-};*/
+};
 
 const styles = StyleSheet.create({
   container:{
@@ -33,11 +34,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const onSubmit = (values) => {
-  console.log('SUBMIT ', values)
-}
-
-export const SignIn = () => {
+export const SignInForm = ({ onSubmit }) => {
   return (
     <>
     <View style={styles.container}>
@@ -50,4 +47,13 @@ export const SignIn = () => {
   );
 };
 
-export default SignIn;
+export const SignIn = ({ onSubmit }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}>
+      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+    </Formik>
+  );
+};
+

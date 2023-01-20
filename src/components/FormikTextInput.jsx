@@ -11,9 +11,6 @@ const styles = StyleSheet.create({
 });
 
 const FormikTextInput = ({ name, ...props }) => {
-  
-  console.log('name on ', name)
-  console.log('props on ', props)
   const [field, meta, helpers] = useField(name);
   const showError = meta.touched && meta.error;
 

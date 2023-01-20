@@ -4,15 +4,18 @@ import { Route, Routes, Navigate } from 'react-router-native';
 import RepositoryList from './RepositoryList';
 import { SignIn } from './SignIn';
 import AppBar from './AppBar';
-import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.mainBackground,
+    backgroundColor: '#e1e4e8',
     flexGrow: 1,
     flexShrink: 1,
   },
 });
+
+const onSubmit = (values) => {
+  console.log('SUBMIT ', values)
+}
 
 const Main = () => {
   return (
@@ -20,7 +23,7 @@ const Main = () => {
       <AppBar/>
       <Routes>
           <Route path="/" element={<RepositoryList />} exact />
-          <Route path="/signIn" element={<SignIn />} exact />
+          <Route path="/signIn" element={<SignIn onSubmit={() => onSubmit}/>} exact />
           <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </View>
