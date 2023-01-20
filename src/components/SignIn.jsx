@@ -33,15 +33,21 @@ const styles = StyleSheet.create({
   },
 })
 
-export const SignIn = ({ onSubmit }) => {
+const onSubmit = (values) => {
+  console.log('SUBMIT ', values)
+}
+
+export const SignIn = () => {
   return (
+    <>
     <View style={styles.container}>
       <FormikTextInput style={styles.flexItems} name="username" placeholder="Username" />
-      <FormikTextInput /*secureTextEntry*/ style={styles.flexItems} name="password" placeholder="Password" />
-      <Pressable style={styles.button} onPress={onSubmit}>
-        <Text color='highContrast' fontWeight='bold'>Sign In</Text>
+      <FormikTextInput secureTextEntry style={styles.flexItems} name="password" placeholder="Password" />
+      <Pressable style={styles.button}>
+        <Text color='highContrast' fontWeight='bold' onPress={onSubmit}>Sign In</Text>
       </Pressable>
-    </View>
+    </View></>
   );
 };
 
+export default SignIn;

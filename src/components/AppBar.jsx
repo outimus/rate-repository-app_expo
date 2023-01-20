@@ -26,10 +26,10 @@ const AppBar = () => {
     <View style={styles.container}>
       <ScrollView horizontal={true}>
         <Link to="/">
-          <Text  style={styles.title}>Repositories</Text>
+          <Text style={styles.title}>Repositories</Text>
         </Link>
         <Link to="/signIn">
-          <Text  style={styles.title}>SignIn</Text>
+          <Text style={styles.title}>SignIn</Text>
         </Link>
       </ScrollView>
     </View>
