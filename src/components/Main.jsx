@@ -23,7 +23,7 @@ const Main = () => {
       <AppBar/>
       <Routes>
           <Route path="/" element={<RepositoryList />} exact />
-          <Route path="/signIn" element={<SignIn onSubmit={() => onSubmit}/>} exact />
+          <Route path="/signIn" element={<SignIn onSubmit={onSubmit}/>} exact />
           <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </View>
