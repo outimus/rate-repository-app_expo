@@ -1,7 +1,6 @@
 import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
-import SignIn from './SignIn';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,7 +33,7 @@ const AppBar = () => {
           <Pressable onPress={handlePress}>
             <Text style={styles.title}>Repositories</Text>
           </Pressable>
-          <Pressable onPress={() => <SignIn/>}> 
+          <Pressable onPress={() => "/signIn"}> 
             <Text style={styles.title}>Sign In</Text>
           </Pressable>
         </ScrollView>
