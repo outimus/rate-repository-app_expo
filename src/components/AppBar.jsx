@@ -1,6 +1,6 @@
-import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Constants from 'expo-constants';
-import Text from './Text';
+import { Link } from 'react-router-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -20,25 +20,19 @@ const styles = StyleSheet.create({
   }
 });
 
-const handlePress = () => {
-  console.log('YOU CLICKED!')
-}
 
-//MITEN SAAN onPressistä sivun siirtymään SignInniin?
 const AppBar = () => {
   return (
-    <>
     <View style={styles.container}>
-        <ScrollView horizontal>
-          <Pressable onPress={handlePress}>
-            <Text style={styles.title}>Repositories</Text>
-          </Pressable>
-          <Pressable onPress={() => "/signIn"}> 
-            <Text style={styles.title}>Sign In</Text>
-          </Pressable>
-        </ScrollView>
+      <ScrollView horizontal={true}>
+        <Link to="/">
+          <Text  style={styles.title}>Repositories</Text>
+        </Link>
+        <Link to="/signIn">
+          <Text  style={styles.title}>SignIn</Text>
+        </Link>
+      </ScrollView>
     </View>
-    </>
   )
 };
 
