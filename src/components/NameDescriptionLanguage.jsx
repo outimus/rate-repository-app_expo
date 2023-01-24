@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
     },
     language: {
         backgroundColor: '#0366d6',
-        flexGrow: 0,
         color: 'white',
         textAlign: 'center',
-        width: 90,
+        width: 85,
         height: 20,
         margin: 2,
         borderRadius: 5

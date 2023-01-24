@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
 })
 
 export const Avatar = (item) => {
-    console.log(item)
     return (
         <>
         <View style={styles.container}>
