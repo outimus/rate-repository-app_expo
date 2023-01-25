@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import theme from '../theme';
+import useSignIn  from '../hooks/useSignIn'
 
 const initialValues = {
   username: '',
@@ -43,11 +44,11 @@ const styles = StyleSheet.create({
 const validationSchema = yup.object().shape({
   username: yup
     .string()
-    .min(8, 'Username must have at least 8 digits.')
+    .min(3, 'Username must have at least 3 digits.')
     .required('Username is required'),
   password: yup
     .string()
-    .min(8, 'Password must have at least 8 digits.')
+    .min(5, 'Password must have at least 5 digits.')
     .required('Password is required'),
 });
 
@@ -64,7 +65,20 @@ export const SignInForm = ({ onSubmit }) => {
   );
 };
 
-export const SignIn = ({ onSubmit }) => {
+export const SignIn = () => {
+  const [signIn] = useSignIn();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+      console.log('AccessToken: ',data.authenticate.accessToken);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Formik
       initialValues={initialValues}

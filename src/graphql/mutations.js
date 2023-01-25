@@ -1,11 +1,12 @@
-/*import { gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-export const NAME_OF_THE_MUTATION_COMES_HERE = gql`
-  mutation {
-    repositories {
-      ${...}
+export const AUTHENTICATE = gql`
+mutation Authenticate($username: String!, $password: String!){
+authenticate(credentials: {username: $username, password: $password }) {
+  accessToken
+  user {
+    username
     }
   }
-`;
-
-// other mutations...*/
+}
+  `;
