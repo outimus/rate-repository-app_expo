@@ -33,8 +33,8 @@ const AppBar = () => {
     await authStorage.removeAccessToken();
     await apolloClient.resetStore();
   };
-
-  if (user.data.me) {
+  ////////////////////////??
+  if (!user.data) {
     return (
       <View style={styles.container}>
         <ScrollView horizontal={true}>
