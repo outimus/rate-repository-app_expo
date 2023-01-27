@@ -1,10 +1,11 @@
-import { View, StyleSheet, ScrollView, Text, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Constants from 'expo-constants';
 import { Link } from 'react-router-native'
 import { AUTHENTICATED_USER } from '../graphql/queries';
 import { useQuery } from '@apollo/client';
 import useAuthStorage from'../hooks/useAuthStorage';
 import { useApolloClient } from '@apollo/client';
+import { useState } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,29 +26,22 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
-  const user = useQuery(AUTHENTICATED_USER);
+  const [ signed, setSigned ] = useState(false)
+  const { data } = useQuery(AUTHENTICATED_USER);
   const authStorage = useAuthStorage();
   const apolloClient = useApolloClient();
+
+  if (data && !signed) {
+    if (data.me) {
+    setSigned(true)
+    }
+  }
 
   const handleSignOut = async () => {
     await authStorage.removeAccessToken();
     await apolloClient.resetStore();
+    setSigned(false);
   };
-  ////////////////////////??
-  if (!user.data) {
-    return (
-      <View style={styles.container}>
-        <ScrollView horizontal={true}>
-          <Link to="/">
-            <Text style={styles.title}>Repositories</Text>
-          </Link>
-            <Pressable>
-              <Text style={styles.title} onPress={handleSignOut}>SignOut</Text>
-            </Pressable>
-        </ScrollView>
-      </View>
-    )
-  } else {
     return (
       <View style={styles.container}>
         <ScrollView horizontal={true}>
@@ -55,12 +49,12 @@ const AppBar = () => {
             <Text style={styles.title}>Repositories</Text>
           </Link>
           <Link to="/signIn">
-            <Text style={styles.title}>SignIn</Text>
+            { signed ? <Text style={styles.title} onPress={handleSignOut}>SignOut </Text>
+            : <Text style={styles.title}>SignIn </Text> }
           </Link>
         </ScrollView>
       </View>
     )
-  }
 }
 ;
 
