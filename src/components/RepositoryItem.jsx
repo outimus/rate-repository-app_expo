@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 export const RepositoryItem = (item) => {
     return (
         <>
-        <View style={styles.container}>
+        <View testID="repositoryItem" style={styles.container}>
             <Avatar style={styles.avatar} item={item.item}/>
             <NameDescriptionLanguage style={styles.fullNameDescripLang} item={item.item}/>
             <StarsForksReviewsRating style={styles.starsForksReviewsRating} item={item.item} />
