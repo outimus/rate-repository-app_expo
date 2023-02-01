@@ -5,6 +5,7 @@ import { StarsForksReviewsRating } from "./StarsForksReviewsRating";
 import { useQuery } from "@apollo/client";
 import { SINGLE_REPO_VIEW } from "../graphql/queries";
 import { useParams } from "react-router-native";
+import { Linking } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -40,9 +41,7 @@ const styles = StyleSheet.create({
     }
   });
 
-const handlePress = () => {
-    console.log('YOU PRESSED!!')
-}
+
 
 export const SingleRepoView = () => {
     const { id } = useParams();
@@ -51,6 +50,10 @@ export const SingleRepoView = () => {
         fetchPolicy: 'cache-and-network',
         variables: { id }
     });
+
+    const handlePress = () => {
+        Linking.openURL(data.repository.url)
+    }
 
     if (data) {
         return (
