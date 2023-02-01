@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
     }
 })
 
-export const Avatar = (item) => {
+export const Avatar = ({ item }) => {
     return (
         <>
         <View style={styles.container}>
             <Image
                 style={styles.image}
-                source={{uri: item.item.ownerAvatarUrl}}>
+                source={{uri: item.ownerAvatarUrl}}>
             </Image>
         </View>
         </>
