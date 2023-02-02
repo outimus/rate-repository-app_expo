@@ -11,9 +11,6 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-let singleRepo = false;
-let repoId = "";
-
 export const RepositoryListContainer = ({ repositories }) => {
   const navigate = useNavigate();
   const repositoryNodes = repositories
@@ -22,9 +19,7 @@ export const RepositoryListContainer = ({ repositories }) => {
     : [];
   
   const handlePress = (item) => {
-    repoId = item.id
-    singleRepo = true
-    navigate(`/${repoId}`)
+    navigate(`/${item.id}`)
   }
   return (
     <>
@@ -33,7 +28,7 @@ export const RepositoryListContainer = ({ repositories }) => {
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({item}) => (
         <Pressable onPress={() => handlePress(item)}>
-          <RepositoryItem item={item} singleRepo={singleRepo} />
+          <RepositoryItem item={item} />
         </Pressable>
       )}
     /></>

@@ -2,7 +2,8 @@ import { View, StyleSheet } from "react-native"
 import { Avatar } from "./Avatar";
 import { NameDescriptionLanguage } from "./NameDescriptionLanguage";
 import { StarsForksReviewsRating } from "./StarsForksReviewsRating";
-import { SingleRepoView } from "./SingleRepoView";
+import SingleRepoView from "./SingleRepoView";
+import { useParams } from "react-router-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -27,11 +28,11 @@ const styles = StyleSheet.create({
 
   });
 
-
-export const RepositoryItem = ({item, singleRepo }) => {
+export const RepositoryItem = ({ item }) => {
+    const {id} = useParams()
     return (
         <>
-        {singleRepo ? <SingleRepoView />
+        {id ? <SingleRepoView />
         : <View testID="repositoryItem" style={styles.container}>
             <Avatar style={styles.avatar} item={item}/>
             <NameDescriptionLanguage style={styles.fullNameDescripLang} item={item}/>
