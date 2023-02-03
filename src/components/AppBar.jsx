@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   title: {
     margin: 5,
     color: 'white',
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'left',
     lineHeight: 120
@@ -48,10 +48,14 @@ const AppBar = () => {
           <Link to="/">
             <Text style={styles.title}>Repositories</Text>
           </Link>
+          { signed && <Link to="/createReview">
+            <Text style={styles.title} >Create a review </Text>
+          </Link> }
           <Link to="/signIn">
             { signed ? <Text style={styles.title} onPress={handleSignOut}>SignOut </Text>
             : <Text style={styles.title}>SignIn </Text> }
           </Link>
+          
         </ScrollView>
       </View>
     )
